@@ -30,6 +30,38 @@ function SignUp() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  // Calculate responsive positions based on window size
+  const getResponsivePositions = () => {
+    const isSmallScreen = windowSize.width < 1280;
+    const isMediumScreen = windowSize.width >= 1280 && windowSize.width < 1600;
+    const isLargeScreen = windowSize.width >= 1600;
+
+    return {
+      leftInitial: {
+        x: isSmallScreen ? '-43vw' : isMediumScreen ? '-42vw' : '-40vw',
+        y: isSmallScreen ? '-40.3vh' : isMediumScreen ? '-36vh' : '-32vh',
+        scale: isSmallScreen ? 0.6 : isMediumScreen ? 0.65 : 0.7,
+      },
+      leftSubmitted: {
+        x: isSmallScreen ? '-6vw' : isMediumScreen ? '-2vw' : '0vw',
+        y: isSmallScreen ? '-20vh' : isMediumScreen ? '-21vh' : '-20vh',
+        scale: isSmallScreen ? 1.9 : isMediumScreen ? 1.5 : 1.4,
+      },
+      rightInitial: {
+        x: isSmallScreen ? '43vw' : isMediumScreen ? '42vw' : '40vw',
+        y: isSmallScreen ? '40vh' : isMediumScreen ? '36vh' : '32vh',
+        scale: isSmallScreen ? 0.6 : isMediumScreen ? 0.65 : 0.7,
+      },
+      rightSubmitted: {
+        x: isSmallScreen ? '2vw' : isMediumScreen ? '4vw' : '6vw',
+        y: isSmallScreen ? '24vh' : isMediumScreen ? '24vh' : '24vh',
+        scale: isSmallScreen ? 1.7 : isMediumScreen ? 1.3 : 1.2,
+      }
+    };
+  };
+
+  const responsivePositions = getResponsivePositions();
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -76,15 +108,15 @@ function SignUp() {
   // Character animation variants - meeting in the center
   const leftCharacterVariants = {
     initial: { 
-      x: '-41vw', 
-      y: '-34vh', 
-      scale: 0.7,
+      x: responsivePositions.leftInitial.x, 
+      y: responsivePositions.leftInitial.y, 
+      scale: responsivePositions.leftInitial.scale,
       rotate: 0,
     },
     submitted: { 
-      x: '-1vw', 
-      y: '-19.5vh', 
-      scale: 1.44,
+      x: responsivePositions.leftSubmitted.x, 
+      y: responsivePositions.leftSubmitted.y, 
+      scale: responsivePositions.leftSubmitted.scale,
       rotate: 1,
       transition: { duration: 1.2, ease: 'easeOut' }
     },
@@ -92,15 +124,15 @@ function SignUp() {
 
   const rightCharacterVariants = {
     initial: { 
-      x: '41vw', 
-      y: '34vh', 
-      scale: 0.7,
+      x: responsivePositions.rightInitial.x, 
+      y: responsivePositions.rightInitial.y, 
+      scale: responsivePositions.rightInitial.scale,
       rotate: 0,
     },
     submitted: { 
-      x: '5vw', 
-      y: '24vh', 
-      scale: 1.18,
+      x: responsivePositions.rightSubmitted.x, 
+      y: responsivePositions.rightSubmitted.y, 
+      scale: responsivePositions.rightSubmitted.scale,
       rotate: -1,
       transition: { duration: 1.2, ease: 'easeOut' }
     },
@@ -235,7 +267,8 @@ function SignUp() {
             <motion.img
               src={img1}
               alt="Left character"
-              className="w-[30vw] max-w-[400px]"
+              className="w-auto h-auto max-w-[400px] min-w-[200px]"
+              style={{ width: 'clamp(200px, 25vw, 400px)' }}
             />
           </motion.div>
 
@@ -249,7 +282,8 @@ function SignUp() {
             <motion.img
               src={img2}
               alt="Right character"
-              className="w-[30vw] max-w-[400px]"
+              className="w-auto h-auto max-w-[400px] min-w-[200px]"
+              style={{ width: 'clamp(200px, 25vw, 400px)' }}
             />
           </motion.div>
         </div>
