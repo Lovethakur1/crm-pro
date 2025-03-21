@@ -38,24 +38,24 @@ function SignUp() {
 
     return {
       leftInitial: {
-        x: isSmallScreen ? '-43vw' : isMediumScreen ? '-42vw' : '-40vw',
-        y: isSmallScreen ? '-40.3vh' : isMediumScreen ? '-36vh' : '-32vh',
-        scale: isSmallScreen ? 0.6 : isMediumScreen ? 0.65 : 0.7,
+        x: isSmallScreen ? '-43vw' : isMediumScreen ? '-42vw' : '-40.7vw',
+        y: isSmallScreen ? '-40.3vh' : isMediumScreen ? '-36vh' : '-36vh',
+        scale: isSmallScreen ? 0.6 : isMediumScreen ? 0.65 : 0.9,
       },
       leftSubmitted: {
-        x: isSmallScreen ? '-6vw' : isMediumScreen ? '-2vw' : '0vw',
-        y: isSmallScreen ? '-20vh' : isMediumScreen ? '-21vh' : '-20vh',
-        scale: isSmallScreen ? 1.9 : isMediumScreen ? 1.5 : 1.4,
+        x: isSmallScreen ? '-6vw' : isMediumScreen ? '-2vw' : '-3vw',
+        y: isSmallScreen ? '-20vh' : isMediumScreen ? '-21vh' : '-20.5vh',
+        scale: isSmallScreen ? 1.9 : isMediumScreen ? 1.5 : 2.05,
       },
       rightInitial: {
-        x: isSmallScreen ? '43vw' : isMediumScreen ? '42vw' : '40vw',
-        y: isSmallScreen ? '40vh' : isMediumScreen ? '36vh' : '32vh',
-        scale: isSmallScreen ? 0.6 : isMediumScreen ? 0.65 : 0.7,
+        x: isSmallScreen ? '43vw' : isMediumScreen ? '42vw' : '40.7vw',
+        y: isSmallScreen ? '40vh' : isMediumScreen ? '36vh' : '36vh',
+        scale: isSmallScreen ? 0.6 : isMediumScreen ? 0.65 : 0.9,
       },
       rightSubmitted: {
-        x: isSmallScreen ? '2vw' : isMediumScreen ? '4vw' : '6vw',
-        y: isSmallScreen ? '24vh' : isMediumScreen ? '24vh' : '24vh',
-        scale: isSmallScreen ? 1.7 : isMediumScreen ? 1.3 : 1.2,
+        x: isSmallScreen ? '2vw' : isMediumScreen ? '4vw' : '4vw',
+        y: isSmallScreen ? '24vh' : isMediumScreen ? '24vh' : '23vh',
+        scale: isSmallScreen ? 1.7 : isMediumScreen ? 1.3 : 1.85,
       }
     };
   };
